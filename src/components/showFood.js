@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState, useEffect} from 'react';
 import './showFood.css'
 
 const ShowFood = () => {
@@ -33,7 +33,7 @@ const ShowFood = () => {
   return (   
     <>
         <div className='filter'>
-            <div className='list-item'> Food Type : 
+            <div className='filter-item'> Food Type : 
                 <select id="cars" onChange={e=>handleCategoryFilter(e)}>
                     <option value="Delicious Food">Delicious Food</option>
                     <option value="Nutritious Food">Nutritious Food</option>
@@ -42,7 +42,7 @@ const ShowFood = () => {
                     <option value="Desserts">Desserts</option>
                 </select>
             </div>
-            <div className='list-item'> Max Delivery Time : 
+            <div className='filter-item'> Max Delivery Time : 
                 <input type="number" value={time} onChange={e=>handleTimeFilter(e)}/>
             </div>
         </div>

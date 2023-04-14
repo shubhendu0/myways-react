@@ -30,6 +30,7 @@ const AddFood = () => {
     console.log(newData)
     console.log(list)
     setList((prevList) => [...prevList, newData]);
+    alert("Item added to the list!")
   }
 
   useEffect(()=>{

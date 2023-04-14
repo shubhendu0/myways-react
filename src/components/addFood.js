@@ -47,6 +47,7 @@ const AddFood = () => {
           
           <div className='list-item'> Food Type : 
             <select id="cars" onChange={(e)=> setCategory(e.currentTarget.value)}>
+              <option value="" disabled>Choose here</option>
               <option value="Delicious Food">Delicious Food</option>
               <option value="Nutritious Food">Nutritious Food</option>
               <option value="Fast Food">Fast Food</option>

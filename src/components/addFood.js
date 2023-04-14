@@ -42,11 +42,11 @@ const AddFood = () => {
         <div className='add-food'>
           <div className='list-item'>
             Food Name : 
-            <input type="text" name="food-name" onChange={(e)=>setName(e.currentTarget.value)}/>
+            <input type="text" name="food-name" onChange={(e)=>setName(e.target.value)}/>
           </div>
           
           <div className='list-item'> Food Type : 
-            <select onChange={(e)=> setCategory(e.currentTarget.value)}>
+            <select defaultValue="" onChange={(e)=> setCategory(e.target.value)}>
               <option value="" disabled>Choose here</option>
               <option value="Delicious Food">Delicious Food</option>
               <option value="Nutritious Food">Nutritious Food</option>
@@ -57,7 +57,7 @@ const AddFood = () => {
           </div>
           
           <div className='list-item'> Max Delivery Time : 
-            <input type="number" value={time} onChange={(e)=>setTime(e.currentTarget.value)}/>
+            <input type="number" value={time} onChange={(e)=>setTime(e.target.value)}/>
           </div>
           
           <div className='btn' >

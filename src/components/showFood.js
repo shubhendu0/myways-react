@@ -13,28 +13,28 @@ const ShowFood = () => {
     }
 
     const [list, setList] = useState(getLocalItem);
+    const [filterList, setFilterList] = useState(list);
     const [category, setCategory] = useState("");
-    const [time, setTime] = useState(200);
+    const [time, setTime] = useState(3000);
 
-    const handleCategoryFilter = (e) => {
-        setCategory(e.currentTarget.value)
-        const newList = list.filter(item => item.category === category)
-        setList(newList)
-        console.log(list);
-    }
 
-    const handleTimeFilter = (e) => {
-        setTime(e.currentTarget.value)
-        const newList = list.filter(item => item.time < time)
-        setList(newList)
-        console.log(list);
-    }
+    useEffect(()=>{
+        console.log(category+" "+time)
+        const newList = list.filter(item => {
+            if(category === ""){
+                return item.time < time
+            }
+            return (item.category === category && item.time < time)
+        })
+        setFilterList(newList);
+    },[category, time])
+
     
-  return (   
+    return (   
     <>
         <div className='filter'>
             <div className='filter-item'> Food Type : 
-                <select onChange={e=>handleCategoryFilter(e)}>
+                <select defaultValue="" onChange={(e)=>setCategory(e.target.value)}>
                     <option value="" disabled>Choose here</option>
                     <option value="Delicious Food">Delicious Food</option>
                     <option value="Nutritious Food">Nutritious Food</option>
@@ -44,16 +44,16 @@ const ShowFood = () => {
                 </select>
             </div>
             <div className='filter-item'> Max Delivery Time : 
-                <input type="number" value={time} onChange={e=>handleTimeFilter(e)}/>
+                <input type="number" value={time} onChange={(e)=>setTime(e.target.value)}/>
             </div>
         </div>
 
         <div className='show-items'>
             {
-                list !== null
+                filterList !== null
                 ?
                 
-                    list.map((item, index) => 
+                    filterList.map((item, index) => 
                         <div className='items'>
                             <h2> {item.name} </h2>
                             <h5> {item.category} </h5>

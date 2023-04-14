@@ -1,0 +1,13 @@
+.show-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.items{
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 10px;
+}

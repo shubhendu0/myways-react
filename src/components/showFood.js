@@ -34,7 +34,7 @@ const ShowFood = () => {
     <>
         <div className='filter'>
             <div className='filter-item'> Food Type : 
-                <select id="cars" onChange={e=>handleCategoryFilter(e)}>
+                <select onChange={e=>handleCategoryFilter(e)}>
                     <option value="" disabled>Choose here</option>
                     <option value="Delicious Food">Delicious Food</option>
                     <option value="Nutritious Food">Nutritious Food</option>
